@@ -35,11 +35,11 @@ tagproj:
 	git tag -a v`cat VERSION`
 	git push --tags
 
-pkg: venv
+pkg: virtualenv
 	$(VENV_DIR)/bin/pip install --upgrade setuptools wheel
 	$(VENV_DIR)/bin/python3 setup.py sdist bdist_wheel
 
-pkg_upload:
+pkg_upload: virtualenv
 	$(VENV_DIR)/bin/pip install --upgrade twine
 	$(VENV_DIR)/bin/twine upload dist/*
 

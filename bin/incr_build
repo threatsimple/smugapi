@@ -11,6 +11,6 @@ fi
 
 echo incrementing version in file $version_fname
 
-tmpfile=`mktemp ".${version_fname}.XX"` || exit 1
+tmpfile=`mktemp ".${version_fname}.XXXX"` || exit 1
 awk -F. '{print $1"."$2"."$3+1}' < $version_fname > $tmpfile
 mv $tmpfile $version_fname
