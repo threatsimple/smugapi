@@ -8,6 +8,7 @@ setup(
     version = VERSION,
     description = 'helpful api endpoints for smug',
     long_description = long_description,
+    long_description_content_type="text/markdown",
     url = 'https://github.com/nod/smugapi',
     classifiers = [
         'License :: OSI Approved :: MIT License',
@@ -19,13 +20,10 @@ setup(
     python_requires='>=3.6',
     install_requires=[
         'click',
-        'databag>=1.4',
-        'humanize',
         'markdown2',
         'pngcanvas',
         'requests',
         'tornado',
-        'tornroutes',
         'webpreview',
         ],
     )

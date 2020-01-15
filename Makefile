@@ -28,4 +28,18 @@ $(VENV_DIR)/bin/activate:
 dev: virtualenv
 	$(VENV_DIR)/bin/pip install -e .
 
+bumpver:
+	bin/incr_build VERSION
+
+tagproj:
+	git tag -a v`cat VERSION`
+	git push --tags
+
+pkg: venv
+	$(VENV_DIR)/bin/pip install --upgrade setuptools wheel
+	$(VENV_DIR)/bin/python3 setup.py sdist bdist_wheel
+
+pkg_upload:
+	$(VENV_DIR)/bin/pip install --upgrade twine
+	$(VENV_DIR)/bin/twine upload dist/*
 

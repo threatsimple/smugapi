@@ -33,7 +33,7 @@ class TestMockedWeather(HttpTestCase):
                 'smugapi.handlers.weatherbit._fetch_weather',
                 fake_fetch_weather
                 ):
-            self.get_app().configuration.set('weatherbit_apikey', 'fake')
+            self.get_app().configuration.set('weatherbit_key', 'fake')
             # app._weatherbit_apikey = 'fake'
             resp = self.fetch('/weather?city=austin,tx')
             data = self.to_json(resp)
@@ -46,10 +46,11 @@ class TestMockedWeather(HttpTestCase):
                 'smugapi.handlers.weatherbit._fetch_forecast',
                 fake_fetch_forecast
                 ):
-            self.get_app().configuration.set('weatherbit_apikey', 'fake')
+            self.get_app().configuration.set('weatherbit_key', 'fake')
             resp = self.fetch('/forecast?city=austin,tx')
+            print(resp)
+            print(resp.body)
             data = self.to_json(resp)
-            print(data)
             self.assertEqual(data['ok'], True)
             self.assertTrue(data['text'].startswith('forecast for Will'))
 
