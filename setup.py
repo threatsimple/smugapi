@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 long_description = open('README.md').read()
 VERSION = open('VERSION').read().strip()
@@ -15,8 +15,8 @@ setup(
         'Programming Language :: Python :: 3',
         ],
     entry_points = { 'console_scripts': [ 'smugapi=smugapi.cli.main:cli'] },
-    packages=find_packages(),
-    package_dir={'': 'src'},
+    package_dir={'smugapi': 'src/smugapi'},
+    packages=['smugapi'],
     python_requires='>=3.6',
     install_requires=[
         'click',
