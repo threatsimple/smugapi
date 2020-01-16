@@ -2,13 +2,34 @@
 
 a few smug api endpoints that may be useful
 
-# command line
+# quickstart
 
-All development related tasks are managed via the `Makefile`.
+The fastest way to get started is to use the docker image.
 
-Managing the app at runtime is handled via the `smugapi` command.
+```
+docker pull threatsimple/smugapi:latest
+export SMUG_WEATHERBIT_KEY=YourWeatherKey
+export SMUG_WORLDTRADINGDATA_KEY=YourStockQuoteKey
+docker run -p 8088 \
+    -e SMUG_WEATHERBIT_KEY -e SMUG_WORLDTRADINGDATA_KEY -it \
+    threatsimple/smugapi:latest
+```
+
+The other option is to use the package in pypi.org.
+
+```
+pip3 install smugapi
+export SMUG_WEATHERBIT_KEY=YourWeatherKey
+export SMUG_WORLDTRADINGDATA_KEY=YourStockQuoteKey
+smugapi run
+```
+
+Either way, you'll have the api running and listening on localhost, port 8088.
 
 # running the service
+
+There is a command line tool, `smugapi` that allows for easy starting of the api
+service.
 
 ```
 smugapi run
@@ -17,8 +38,9 @@ smugapi run
 This will run the web service and bind to localhost.
 
 
-You'll want to pass api keys via either the cmd line or environment variables.
-
+This doesn't get you anything useful, though.  You'll want to pass api keys via
+either the cmd line or environment variables, as discussed in the endpoints
+section below.
 
 # endpoints
 
@@ -53,6 +75,8 @@ smugapi run
 ```
 
 # developing
+
+All development related tasks are managed via the Makefile.
 
 ## dev environment
 

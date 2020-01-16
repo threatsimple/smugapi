@@ -45,5 +45,6 @@ pkg_upload: virtualenv
 
 build_docker:
 	docker build -t threatsimple/smugapi:`cat VERSION` .
+	docker build -t threatsimple/smugapi:latest .
 
 

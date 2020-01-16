@@ -5,3 +5,5 @@
 pyvenv
 **/*.db
 secrets
+build
+dist
