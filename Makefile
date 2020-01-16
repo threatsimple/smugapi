@@ -43,3 +43,7 @@ pkg_upload: virtualenv
 	$(VENV_DIR)/bin/pip install --upgrade twine
 	$(VENV_DIR)/bin/twine upload dist/*
 
+build_docker:
+	docker build -t threatsimple/smugapi:`cat VERSION` .
+
+
