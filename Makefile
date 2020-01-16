@@ -16,7 +16,7 @@ testx:
 	$(VENV_DIR)/bin/pytest -x
 
 clean:
-	rm -rf $(VENV_DIR)
+	rm -rf $(VENV_DIR) build dist
 	find . -type d -name __pycache__ | xargs rm -rf
 	find . -type d -name smugapi.egg-info | xargs rm -rf
 

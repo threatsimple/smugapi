@@ -16,11 +16,10 @@ setup(
         ],
     entry_points = { 'console_scripts': [ 'smugapi=smugapi.cli.main:cli'] },
     package_dir={'smugapi': 'src/smugapi'},
-    packages=['smugapi'],
+    packages=['smugapi', 'smugapi.cli', 'smugapi.lib', 'smugapi.handlers'],
     python_requires='>=3.6',
     install_requires=[
         'click',
-        'markdown2',
         'pngcanvas',
         'requests',
         'tornado',

@@ -6,6 +6,6 @@ from .base import BaseHandler, route
 class IndexHandler(BaseHandler):
 
     def get(self):
-        self.render_md_file('index.md', 'smug api')
+        self.write("smugapi")
 
 

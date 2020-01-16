@@ -1,6 +1,4 @@
 
-
-
 import re
 from contextlib import contextmanager
 from os import environ, path
@@ -9,7 +7,6 @@ import tornado.ioloop
 import tornado.web
 
 from .handlers.base import route
-
 
 template_path = path.join(path.dirname(__file__), "templates")
 
