@@ -35,6 +35,12 @@ def apiout(ok=True, msg='', **ka):
 
 
 class BaseHandler(web.RequestHandler):
+    def prepare(self):
+        if self.request.headers.get('Content-Type') == 'application/json':
+            self.args = json.loads(self.request.body)
+        else:
+            self.args = {}
+        super(BaseHandler, self).prepare()
 
     def api_ok(self, text='', blocks=[], **ka):
         self.finish(apiout(ok=True, text=text, blocks=blocks, data=ka))
@@ -55,3 +61,4 @@ class ApiHandler(BaseHandler):
 
 def make_block(text='', img='', title=''):
     return dict(text=text, img=img, title=title)
+
