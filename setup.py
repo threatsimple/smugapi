@@ -15,7 +15,7 @@ setup(
         'Programming Language :: Python :: 3',
         ],
     entry_points = { 'console_scripts': [ 'smugapi=smugapi.cli.main:cli'] },
-    package_dir={'smugapi': 'src/smugapi'},
+    package_dir={'': 'src'},
     packages=['smugapi', 'smugapi.cli', 'smugapi.lib', 'smugapi.handlers'],
     python_requires='>=3.6',
     install_requires=[
